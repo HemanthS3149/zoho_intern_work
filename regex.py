@@ -7,7 +7,7 @@ admin@yghin.co.uk
 contact@company.com
 """
 
-pattern=r'[\w\.-]+@[\w\.-]+\.\w+'
+pattern=r'[\w\.-]+@[\w\.-]+\.\w+' #1st half matches 1 or more occurences of word,. or -. And \. means literal dot instead of meaning "Any character"
 
 matches=re.findall(pattern,text)
 print(matches)
@@ -19,7 +19,8 @@ Jane: 123-456-7890
 Ravi: +1-123-456-7890
 """
 
-pattern=r'\+?\d{0,2}-?\(?\d{3}\)?-?\d{3}-\d{4}'
+pattern=r'\+?\d{0,2}-?\(?\d{3}\)?-?\d{3}-\d{4}' #1st matches + literally
+#? means matches 0 or 1 occurrence of the preceding character('+' in this case),,,,-? means matches '-' directly
 matches=re.findall(pattern,text)
 
 print(matches)
@@ -43,6 +44,7 @@ Check out our page: www.page.com.
 """
 
 pattern=r'https?://[\w\.-]+|www\.[\w\.-]+'
+#https? means matches http by an optional s
 
 matches=re.findall(pattern,text)
 print(matches)
